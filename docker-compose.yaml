@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  server:
+    container_name: server
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MODULE: server
+
+  client:
+    container_name: client
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MODULE: client
+    command: --ip "http://server:50051" --user-name "user1" --secret 1234
+    depends_on:
+      - server

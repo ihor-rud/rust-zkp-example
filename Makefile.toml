@@ -1,0 +1,14 @@
+[env]
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = "true"
+
+[tasks.clippy]
+args          = ["clippy", "--all-targets"]
+command       = "cargo"
+install_crate = "clippy"
+toolchain     = "nightly"
+
+[tasks.format]
+args          = ["fmt"]
+command       = "cargo"
+install_crate = "rustfmt"
+toolchain     = "nightly"
